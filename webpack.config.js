@@ -10,12 +10,19 @@ module.exports = {
         publicPath: "/",
         filename: "bundle.js"
     },
+    externals: {
+        "pixi.js": "PIXI"
+    },
     module: {
         loaders: [
             {
                 test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel?presets[]=es2015'
+            },
+            {
+                test: /node_modules\/log4js\/lib\/log4js\.json/,
+                loader: 'json'
             },
             {
                 test: /node_modules\/log4js\/lib\/appenders\/(?!console.js).+$/,
